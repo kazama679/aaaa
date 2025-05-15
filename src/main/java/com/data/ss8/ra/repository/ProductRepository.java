@@ -8,4 +8,6 @@ public interface ProductRepository {
     List<Product> findAll();
     Product findById(int id);
     boolean add(Product product);
+    boolean update(Product product);
+    boolean delete(int id);
 }

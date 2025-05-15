@@ -7,4 +7,6 @@ public interface ProductService {
     List<Product> findAll();
     Product findById(int id);
     boolean saveProduct(Product product);
+    boolean update(Product product);
+    boolean delete(int id);
 }

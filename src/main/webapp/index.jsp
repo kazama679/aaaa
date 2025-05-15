@@ -6,5 +6,13 @@
 </head>
 <body>
 <h4>Chào mừng đến với ứng dụng của chúng tôi!</h4>
+<%--<script>--%>
+<%--    window.location.href="/customer";--%>
+<%--</script>--%>
+
+<%--<jsp:forward page="/customer"/>--%>
+<%
+    response.sendRedirect("/product");
+%>
 </body>
 </html>

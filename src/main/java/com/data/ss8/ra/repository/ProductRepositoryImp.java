@@ -82,4 +82,43 @@ public class ProductRepositoryImp implements ProductRepository {
         }
         return result;
     }
+
+    @Override
+    public boolean update(Product product) {
+        Connection conn = null;
+        CallableStatement callSt = null;
+        try {
+            conn = ConnectionDB.openConnection();
+            callSt = conn.prepareCall("{call update_product(?,?,?,?)}");
+            callSt.setInt(1,product.getId());
+            callSt.setString(2, product.getName());
+            callSt.setDouble(3,product.getPrice());
+            callSt.setString(4, product.getDescription());
+            callSt.executeUpdate();
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            ConnectionDB.closeConnection(conn, callSt);
+        }
+        return false;
+    }
+
+    @Override
+    public boolean delete(int id) {
+        Connection conn = null;
+        CallableStatement callSt = null;
+        try {
+            conn = ConnectionDB.openConnection();
+            callSt = conn.prepareCall("{call delete_product(?)}");
+            callSt.setInt(1, id);
+            callSt.executeUpdate();
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            ConnectionDB.closeConnection(conn, callSt);
+        }
+        return false;
+    }
 }

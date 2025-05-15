@@ -27,7 +27,11 @@
             <td>${p.name}</td>
             <td>${p.price}</td>
             <td>${p.description}</td>
-            <td><a href="product/${p.id}">Chi tiết</a></td>
+            <td>
+                <a href="product/${p.id}">Chi tiết</a>
+                <a href="product-delete/${p.id}">Xóa</a>
+                <a href="product-update/${p.id}">Sửa</a>
+            </td>
         </tr>
     </c:forEach>
 </table>
